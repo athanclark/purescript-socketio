@@ -1,11 +1,16 @@
 {
   "name": "purescript-socketio",
+  "license": "BSD-3-Clause",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "output"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/athanclark/purescript-socketio.git"
+  },
   "dependencies": {
     "purescript-prelude": "^2.5.0",
     "purescript-console": "^2.0.0",
