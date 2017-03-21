@@ -17,7 +17,7 @@ foreign import connectImpl :: forall eff. EffFn1 (socketio :: SOCKETIO | eff) Ho
 
 foreign import onImpl :: forall eff. EffFn3 (socketio :: SOCKETIO | eff) Socket Channel (forall eff. Foreign -> Eff (socketio :: SOCKETIO | eff) Unit) Unit
 
-foreign import emitImpl :: forall eff. EffFn3 (socketio :: SOCKETIO | eff) Socket Channel String Unit
+foreign import emitImpl :: forall eff. EffFn3 (socketio :: SOCKETIO | eff) Socket Channel Foreign Unit
 
 
 connect :: forall eff. Host -> Eff (socketio :: SOCKETIO | eff) Socket
@@ -26,5 +26,5 @@ connect = runEffFn1 connectImpl
 on :: forall eff. Socket -> Channel -> (forall eff. Foreign -> Eff (socketio :: SOCKETIO | eff) Unit) -> Eff (socketio :: SOCKETIO | eff) Unit
 on = runEffFn3 onImpl
 
-emit :: forall eff. Socket -> Channel -> String -> Eff (socketio :: SOCKETIO | eff) Unit
+emit :: forall eff. Socket -> Channel -> Foreign -> Eff (socketio :: SOCKETIO | eff) Unit
 emit = runEffFn3 emitImpl
